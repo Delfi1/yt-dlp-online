@@ -37,9 +37,12 @@ def download():
         'logger': Logger()
     }
 
-    with yt_dlp.YoutubeDL(opts) as ytdlp:
-        info_dict = ytdlp.extract_info(link, download=True)
-        file_path = ytdlp.prepare_filename(info_dict)
-        filename = os.path.basename(file_path)
+    try:
+        with yt_dlp.YoutubeDL(opts) as ytdlp:
+            info_dict = ytdlp.extract_info(link, download=True)
+            file_path = ytdlp.prepare_filename(info_dict)
+            filename = os.path.basename(file_path)
+    except Exception as e:
+        return Response(str(e), 500)
     
     return send_file(file_path, download_name=filename, as_attachment=True)

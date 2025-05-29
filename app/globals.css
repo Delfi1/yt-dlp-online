@@ -25,3 +25,28 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.main {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.downloader {
+  display: inline-block;
+  margin: 10px 0px 0px 0px;
+}
+
+.downloader input {
+  color: black;
+}
+
+.downloader .download {
+  width: 100%;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
